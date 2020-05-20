@@ -10,7 +10,6 @@ void checkAnagram(char **inputArray, int lineNum) {
 
     unsigned int lengthString[lineNum], groupsOfAnagrams = 0, index;
     int **charCount = calloc(lineNum , sizeof(charCount));
-    char **anagrams = calloc(lineNum , sizeof(anagrams));
     unsigned char ch;
 
     for (unsigned int p = 0; p < lineNum; p++) {
@@ -60,7 +59,7 @@ void checkAnagram(char **inputArray, int lineNum) {
                 ++groupsOfAnagrams;
 
                 // call function to output the anagram
-                outputAnagrams(inputArray, x, y, groupsOfAnagrams);
+                outputAnagram(inputArray, x, y, groupsOfAnagrams);
             }
         }
         free(charCount[x]);
@@ -68,7 +67,4 @@ void checkAnagram(char **inputArray, int lineNum) {
 
     // free memory
     free(charCount);
-
-    free(anagrams);
 }
-

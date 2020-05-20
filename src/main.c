@@ -21,7 +21,7 @@ int main() {
     }
 
     for (unsigned int i = 0; i < lineCount; i++) {
-        inputArray[i] =  calloc(STRINGLEN , sizeof(char));
+        inputArray[i] =  calloc(STRINGLEN + 2 , sizeof(char));
     }
 
     // Call function to read in a list of sentences from input file and place them in 2D array of characters

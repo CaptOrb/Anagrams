@@ -24,10 +24,10 @@ void outputSortedWords(char ** inputArray, unsigned int lineCount) {
     fclose(fp);
 }
 
-void outputAnagrams(char ** anagrams,  unsigned int x, unsigned int y,
+void outputAnagram(char ** anagrams,  unsigned int x, unsigned int y,
         unsigned int groupsOfAnagrams){
 
-    // open output file for writing
+    // open output file in append mode
     FILE *fp = fopen(OUTPUT_PATH, "a+");
 
     // If the file cannot be opened, alert the user
@@ -39,8 +39,6 @@ void outputAnagrams(char ** anagrams,  unsigned int x, unsigned int y,
     if(groupsOfAnagrams == 1) {
         fputs( "\n\nAnagrams:\n\n", fp);
     }
-
-    printf("Anagram %u: %s %s\n", groupsOfAnagrams, anagrams[x], anagrams[y]);
 
     // print anagram to the output file
     fprintf(fp, "Anagram %u: %s %s\n", groupsOfAnagrams, anagrams[x], anagrams[y]);

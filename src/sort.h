@@ -1,7 +1,3 @@
-//
-// Created by Conor Barry on 10/02/2020.
-//
-
 #ifndef SEPROJECT_SORT_H
 #define SEPROJECT_SORT_H
 
