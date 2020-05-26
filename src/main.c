@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "stdlib.h"
+#include <stdlib.h>
 #include "readInput.h"
 #include "outputResults.h"
 #include "anagram.h"
@@ -34,7 +34,7 @@ int main() {
     outputSortedWords(inputArray, lineCount);
 
     // call function to check which words are anagrams
-    checkAnagram(inputArray, lineCount);
+    findAnagrams(inputArray, lineCount);
 
    for (unsigned int i = 0; i < lineCount; i++){
        free(inputArray[i]);

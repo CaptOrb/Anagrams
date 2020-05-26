@@ -1,10 +1,10 @@
-//
-// Created by Conor Barry on 20/02/2020.
-//
-
 #ifndef SEPROJECT_ANAGRAM_H
 #define SEPROJECT_ANAGRAM_H
 
-void checkAnagram(char **inputArray, int lineNum);
+#include <stdbool.h>
+
+void findAnagrams(char **inputArray, int lineNum);
+bool isAnagram(const unsigned int lengthString[], unsigned int x, unsigned int y,
+               unsigned int **charCount);
 
 #endif //SEPROJECT_ANAGRAM_H

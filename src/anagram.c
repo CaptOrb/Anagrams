@@ -6,17 +6,19 @@
 
 #define LETTERSINALPHABET 26
 
-void checkAnagram(char **inputArray, int lineNum) {
+void findAnagrams(char **inputArray, int lineNum) {
 
-    unsigned int lengthString[lineNum], groupsOfAnagrams = 0, index;
-    int **charCount = calloc(lineNum , sizeof(charCount));
-    unsigned char ch;
+    unsigned int lengthString[lineNum], groupsOfAnagrams = 0;
+    unsigned int **charCount = calloc(lineNum , sizeof(charCount));
 
     for (unsigned int p = 0; p < lineNum; p++) {
         lengthString[p] = 0;
         charCount[p] = calloc(LETTERSINALPHABET , sizeof(int));
 
         for (unsigned int j = 0; inputArray[p][j] != '\0'; j++) {
+
+            unsigned int index;
+            unsigned char ch;
 
             // character we are currently getting count of
             // convert the char to lowercase so we know the count of every letter in string regardless of case
@@ -40,20 +42,7 @@ void checkAnagram(char **inputArray, int lineNum) {
 
         for (unsigned int y = x + 1; y < lineNum; y++) {
 
-            bool anagram = true;
-
-            if (lengthString[x] != lengthString[y]) {
-                continue;
-            }
-            for (unsigned int d = 0; d < 26; d++) {
-
-                if (charCount[x][d] != charCount[y][d]) {
-                    anagram = false;
-                    break;
-                }
-            }
-
-            if (anagram) {
+            if (isAnagram(lengthString, x, y, charCount)) {
 
                 // increment the groups of anagrams
                 ++groupsOfAnagrams;
@@ -67,4 +56,18 @@ void checkAnagram(char **inputArray, int lineNum) {
 
     // free memory
     free(charCount);
+}
+
+bool isAnagram(const unsigned int lengthString[], unsigned int x, unsigned int y,
+               unsigned int **charCount){
+
+    if (lengthString[x] != lengthString[y]) {
+        return false;
+    }
+    for (unsigned int d = 0; d < 26; d++) {
+        if (charCount[x][d] != charCount[y][d]) {
+            return false;
+        }
+    }
+    return true;
 }
